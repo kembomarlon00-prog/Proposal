@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Question For You 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    background-color: #fff0f5;
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(255,182,193,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(255,105,180,0.2) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg opacity='0.18'%3E%3Cellipse cx='30' cy='28' rx='10' ry='14' fill='%23e75480' transform='rotate(-30 30 28)'/%3E%3Cellipse cx='46' cy='20' rx='10' ry='14' fill='%23e75480' transform='rotate(30 46 20)'/%3E%3Cellipse cx='37' cy='32' rx='11' ry='8' fill='%23e75480'/%3E%3Cellipse cx='130' cy='80' rx='9' ry='13' fill='%23c2185b' transform='rotate(-30 130 80)'/%3E%3Cellipse cx='145' cy='73' rx='9' ry='13' fill='%23c2185b' transform='rotate(30 145 73)'/%3E%3Cellipse cx='137' cy='86' rx='10' ry='7' fill='%23c2185b'/%3E%3Cellipse cx='70' cy='155' rx='8' ry='12' fill='%23ad1457' transform='rotate(-30 70 155)'/%3E%3Cellipse cx='84' cy='148' rx='8' ry='12' fill='%23ad1457' transform='rotate(30 84 148)'/%3E%3Cellipse cx='77' cy='161' rx='9' ry='6' fill='%23ad1457'/%3E%3Cellipse cx='170' cy='170' rx='7' ry='10' fill='%23e91e8c' transform='rotate(-30 170 170)'/%3E%3Cellipse cx='182' cy='163' rx='7' ry='10' fill='%23e91e8c' transform='rotate(30 182 163)'/%3E%3Cellipse cx='176' cy='175' rx='8' ry='6' fill='%23e91e8c'/%3E%3Cellipse cx='10' cy='120' rx='6' ry='9' fill='%23f48fb1' transform='rotate(-30 10 120)'/%3E%3Cellipse cx='21' cy='114' rx='6' ry='9' fill='%23f48fb1' transform='rotate(30 21 114)'/%3E%3Cellipse cx='15' cy='125' rx='7' ry='5' fill='%23f48fb1'/%3E%3Cellipse cx='100' cy='10' rx='7' ry='11' fill='%23e91e63' transform='rotate(-30 100 10)'/%3E%3Cellipse cx='113' cy='4' rx='7' ry='11' fill='%23e91e63' transform='rotate(30 113 4)'/%3E%3Cellipse cx='106' cy='16' rx='8' ry='6' fill='%23e91e63'/%3E%3Cellipse cx='170' cy='30' rx='5' ry='8' fill='%23f06292' transform='rotate(-30 170 30)'/%3E%3Cellipse cx='180' cy='24' rx='5' ry='8' fill='%23f06292' transform='rotate(30 180 24)'/%3E%3Cellipse cx='175' cy='35' rx='6' ry='4' fill='%23f06292'/%3E%3Cellipse cx='50' cy='185' rx='6' ry='9' fill='%23ba2d65' transform='rotate(-30 50 185)'/%3E%3Cellipse cx='62' cy='178' rx='6' ry='9' fill='%23ba2d65' transform='rotate(30 62 178)'/%3E%3Cellipse cx='56' cy='190' rx='7' ry='5' fill='%23ba2d65'/%3E%3C/g%3E%3C/svg%3E");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(8px);
+    border-radius: 28px;
+    padding: 56px 64px 48px;
+    max-width: 520px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 48px rgba(220,80,120,0.18);
+    position: relative;
+    z-index: 10;
+    animation: cardIn 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .hearts-deco {
+    font-size: 2rem;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: #b5174e;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .sub {
+    font-size: 1rem;
+    color: #c06080;
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-yes {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 14px 42px;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(135deg, #e91e8c, #f06292);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(233,30,140,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn-yes:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 28px rgba(233,30,140,0.5);
+  }
+
+  .btn-yes:active { transform: scale(0.98); }
+
+  .btn-no {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 14px 42px;
+    border-radius: 50px;
+    border: 1.5px solid #e991b8;
+    background: #fff;
+    color: #c06080;
+    cursor: pointer;
+    transition: transform 0.12s;
+    position: fixed;
+    z-index: 999;
+    white-space: nowrap;
+  }
+
+  .btn-no:hover { transform: scale(1.04); }
+
+  /* Confetti canvas */
+  #confetti-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    display: none;
+  }
+
+  .yes-message {
+    display: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #b5174e;
+    font-style: italic;
+    margin-top: 28px;
+    animation: fadeIn 0.6s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <div class="hearts-deco">🌸 💕 🌸</div>
+  <h1>Will you be my girlfriend?</h1>
+  <p class="sub">Think carefully... there's only one right answer 🌷</p>
+  <div class="buttons">
+    <button class="btn-yes" id="yesBtn">Yes 💖</button>
+    <button class="btn-no" id="noBtn">No</button>
+  </div>
+  <div class="yes-message" id="yesMsg">Yay! You've made me the happiest person alive! 💗</div>
+</div>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const yesMsg = document.getElementById('yesMsg');
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Position No button initially near card buttons area
+  const cardEl = document.getElementById('card');
+  const cardRect = cardEl.getBoundingClientRect();
+  noBtn.style.left = (cardRect.right - 180) + 'px';
+  noBtn.style.top  = (cardRect.bottom - 70) + 'px';
+
+  let isMoving = false;
+  let currentX = parseFloat(noBtn.style.left);
+  let currentY = parseFloat(noBtn.style.top);
+  let targetX = currentX;
+  let targetY = currentY;
+  let velX = 0, velY = 0;
+  let escapeMode = false;
+
+  function getRandomEdge() {
+    const margin = 80;
+    const W = window.innerWidth - noBtn.offsetWidth - margin;
+    const H = window.innerHeight - noBtn.offsetHeight - margin;
+    const side = Math.floor(Math.random() * 4);
+    switch(side) {
+      case 0: return { x: margin + Math.random() * W, y: margin };
+      case 1: return { x: margin + Math.random() * W, y: H };
+      case 2: return { x: margin, y: margin + Math.random() * H };
+      default: return { x: W,     y: margin + Math.random() * H };
+    }
+  }
+
+  function flee() {
+    if (escapeMode) return;
+    const margin = 40;
+    const maxX = window.innerWidth - noBtn.offsetWidth - margin;
+    const maxY = window.innerHeight - noBtn.offsetHeight - margin;
+
+    let nx = Math.random() * maxX + margin;
+    let ny = Math.random() * maxY + margin;
+
+    // Bias away from cursor/card center
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    if (Math.abs(nx - cx) < 200) nx = nx < cx ? nx - 200 : nx + 200;
+    if (Math.abs(ny - cy) < 200) ny = ny < cy ? ny - 200 : ny + 200;
+
+    nx = Math.max(margin, Math.min(maxX, nx));
+    ny = Math.max(margin, Math.min(maxY, ny));
+
+    targetX = nx;
+    targetY = ny;
+
+    escapeMode = true;
+    setTimeout(() => { escapeMode = false; }, 600);
+
+    noBtn.style.transition = 'left 0.35s cubic-bezier(0.34,1.4,0.64,1), top 0.35s cubic-bezier(0.34,1.4,0.64,1)';
+    noBtn.style.left = nx + 'px';
+    noBtn.style.top  = ny + 'px';
+    currentX = nx;
+    currentY = ny;
+  }
+
+  noBtn.addEventListener('mouseover', flee);
+  noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); flee(); }, { passive: false });
+  noBtn.addEventListener('click', flee);
+
+  // Yes button
+  yesBtn.addEventListener('click', () => {
+    yesMsg.style.display = 'block';
+    noBtn.style.display = 'none';
+    launchConfetti();
+  });
+
+  // ---- Confetti ----
+  const COLORS = ['#e91e8c','#f48fb1','#ffb6c1','#ff69b4','#c2185b','#fff0f5','#f06292','#ad1457','#ff1493'];
+  let pieces = [];
+  let animId;
+
+  function launchConfetti() {
+    canvas.style.display = 'block';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    pieces = [];
+    for (let i = 0; i < 180; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: -10 - Math.random() * 300,
+        r: 5 + Math.random() * 7,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: 2 + Math.random() * 4,
+        rot: Math.random() * Math.PI * 2,
+        rotV: (Math.random() - 0.5) * 0.15,
+        shape: Math.random() < 0.4 ? 'heart' : Math.random() < 0.5 ? 'circle' : 'rect',
+        alpha: 1
+      });
+    }
+    cancelAnimationFrame(animId);
+    animateConfetti();
+  }
+
+  function drawHeart(ctx, x, y, size) {
+    ctx.beginPath();
+    ctx.moveTo(x, y + size * 0.35);
+    ctx.bezierCurveTo(x, y, x - size, y, x - size, y + size * 0.35);
+    ctx.bezierCurveTo(x - size, y + size * 0.7, x, y + size * 1.1, x, y + size * 1.3);
+    ctx.bezierCurveTo(x, y + size * 1.1, x + size, y + size * 0.7, x + size, y + size * 0.35);
+    ctx.bezierCurveTo(x + size, y, x, y, x, y + size * 0.35);
+    ctx.closePath();
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+    for (const p of pieces) {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.07;
+      p.rot += p.rotV;
+      if (p.y > canvas.height - 60) p.alpha = Math.max(0, p.alpha - 0.03);
+      if (p.alpha > 0) alive = true;
+
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.shape === 'heart') {
+        drawHeart(ctx, 0, -p.r * 0.5, p.r * 0.7);
+        ctx.fill();
+      } else if (p.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.r, -p.r * 0.5, p.r * 2, p.r);
+      }
+      ctx.restore();
+    }
+    if (alive) {
+      animId = requestAnimationFrame(animateConfetti);
+    } else {
+      canvas.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    const margin = 40;
+    currentX = Math.min(currentX, window.innerWidth - noBtn.offsetWidth - margin);
+    currentY = Math.min(currentY, window.innerHeight - noBtn.offsetHeight - margin);
+    noBtn.style.left = currentX + 'px';
+    noBtn.style.top  = currentY + 'px';
+  });
+</script>
+</body>
+</html>
